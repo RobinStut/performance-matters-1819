@@ -1,0 +1,25 @@
+{
+  "name": "index.js",
+  "version": "1.0.0",
+  "description": "index",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobinStut/performance-matters-1819.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RobinStut/performance-matters-1819/issues"
+  },
+  "homepage": "https://github.com/RobinStut/performance-matters-1819#readme",
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.10"
+  }
+}
