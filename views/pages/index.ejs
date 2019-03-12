@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-<h1>test</h1>
 
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body>
+  <% include ../partials/nav %>
+
+  <section class="aanmelden">
+    <p>U kunt zich aanmelden door een mail met uw naam en telefoonnummer te sturen naar obamaatje@oba.nl. U kunt ook bellen naar 020- 52 30 960. Een medewerker van de OBA neemt dan contact met u op om een afspraak te maken voor een intakegesprek.
+    </p>
+    <p>
+      Na het intakegesprek wordt u ingeschreven en gaat de OBA op zoek naar een geschikte vrijwilliger. Wanneer u en de vrijwilliger een positieve kennismaking hebben gehad, worden jullie OBA Maatjes voor de duur van één jaar.</p>
+    <form action="https://www.oba.nl/service/lidmaatschap-en-tarieven/word-lid.html" class="small">
+      <input type="submit" value=" OBA lidmaatschap" />
+    </form>
+  </section>
+
+  <article class="aanmelden">
+    <h2>Aanmelden OBA Maatje intake</h2>
+    <form action="/">
+      <label for="voornaam">Voornaam</label>
+      <input type="input" name="size" id="voornaam" class="input" placeholder="Youssef" />
+      <label for="achternaam">Achternaam</label>
+      <input type="input" name="size" id="achternaam" class="input" placeholder="El Gebali" />
+      <label for="ledennummer">Ledennummer</label>
+      <input type="input" name="size" id="ledennummer" class="input" placeholder="OBA123456789" />
+      <label for="reden">Reden van aanvraag</label>
+      <textarea rows="4" cols="50" name="comment" form="usrform" id="reden">
+Typ hier uw tekst…</textarea>
+      <input type="submit" value="Verstuur aanvraag" class="big" />
+    </form>
+  </article>
+
+
+
+
+  <% include ../partials/footer %>
 </body>
+
 </html>

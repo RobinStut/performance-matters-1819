@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body>
+  <% include ../partials/nav %>
+
+  <section class="personalDetails"><img src="http://texastravesty.com/sites/default/files/field/image/johannes_strate_skarf_man_face_field_8373_1920x1080%20copy.jpg" alt=""><h3>Alvaro<br>Sanchez</h3></section>
+<section class="acceptDeny">
+  <form action="">
+    <input type="submit" value="Goedkeuren" />
+  </form>
+  <form action="">
+    <input type="submit" value="Afwijzen" />
+  </form>
+</section>
+
+<section class="suggest">
+  <h2>Voorgestelde data</h2>
+  <form action="">
+  <input type="radio" name="data"> <span>Dinsdag 12 maart</span><p>10:30 - 11:15</p>
+  <input type="radio" name="data"> <span>Donderdag 14 maart</span><p>12:30 - 13:30</p>
+  <input type="radio" name="data"> <span>Vrijdag 15 maart</span><p>09:15 - 10:00</p>
+  </form>
+  <form action="">
+    <input type="submit" value="Datum bevestigen" class="big" />
+  </form>
+</section>
+
+
+<section class="calender">
+  <table>
+    <caption>Maart 2019</caption>
+    <thead>
+        <tr>
+            <th scope="col">Ma</th>
+            <th scope="col">Di</th>
+            <th scope="col">Wo</th>
+            <th scope="col">Do</th>
+            <th scope="col">Vr</th>
+            <th scope="col">Za</th>
+            <th scope="col">Zo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>&nbsp;</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+        </tr>
+        <tr>
+            <td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+        </tr>
+        <tr>
+            <td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td>
+        </tr>
+        <tr>
+            <td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td>
+        </tr>
+        <tr>
+            <td>28</td><td>29</td><td>30</td><td>31</td><td colspan="3">&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+</section>
+<section class="middle">
+<input type="datetime-local" name="" value="">
+</section>
+
+<section class="history">
+  <h2>Vorige afspraken</h2>
+  <form action="">
+  <span>Dinsdag 12 februari</span><p>10:30 - 11:15</p>
+  <span>Donderdag 14 januari</span><p>12:30 - 13:30</p>
+  <span>Vrijdag 15 december</span><p>09:15 - 10:00</p>
+  </form>
+</section>
+
+  <% include ../partials/footer %>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body>
+  <% include ../partials/nav %>
+
+  <section class="overview">
+    <form action="/lijstSamenstellen">
+      <input type="submit" value="Lijst samenstellen" />
+    </form>
+    <p>Begin direct met het samenstellen van jouw persoonlijke lijst, zodat jouw maatje zich kan voorbereiden!</p>
+  </section>
+
+  <section class="overview">
+    <form action="/maatjeVanPatient">
+      <input type="submit" value="Jouw OBA Maatje" />
+    </form>
+    <p>Plan een datum voor jullie bezoek</p>
+  </section>
+
+  <% include ../partials/footer %>
+</body>
+
+</html>

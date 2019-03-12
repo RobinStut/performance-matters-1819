@@ -1,14 +1,5 @@
-const express = require('express')
-const app = express()
-const port = 3000
-
-app.use(express.static('static'))
-
-app.get('/', (req, res) => res.send('Hello World!'))
-app.get('/test', (req, res) => res.send('test!'))
-app.get('/case/:caseId', (req, res) => {
-  res.send(req.params.caseId)
-})
-
-
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+<link rel="stylesheet" href="/css/styles.css">

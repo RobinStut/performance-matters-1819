@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body>
+  <% include ../partials/nav %>
+
+  <article class="aanmelden">
+    <form action="/login">
+      <label for="voornaam">Gebruikersnaam / Pasnummer</label>
+      <input type="input" name="size" id="voornaam" class="input" placeholder="Gebruikersnaam / Pasnummer" />
+      <label for="achternaam">Wachtwoord / PIN</label>
+      <input type="password" name="size" id="achternaam" class="input" placeholder="Wachtwoord / PIN" />
+
+      <input type="submit" value="Inloggen" class="big" />
+    </form>
+    <a href="/patientVanMaatje">maatje</a>
+    <a href="/patientOverview">patient</a>
+  </article>
+
+  <% include ../partials/footer %>
+</body>
+
+</html>

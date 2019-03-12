@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body>
+  <% include ../partials/nav %>
+
+  <form class="search">
+    <fieldset>
+      <legend></legend>
+      <!-- <label for="searchBtn">Zoeken</label> -->
+      <input type="input" id="searchValue" name="search" required minlength="1" placeholder="Typ hier uw verzoek...">
+      <button id="searchBtn" type="button">&#128269;</button>
+    </fieldset>
+  </form>
+
+  <article class="results">
+    <h2>Resultaten</h2>
+    <section id="loader" class="loader"></section>
+    <section id="wrapper"></section>
+  </article>
+
+  <section id="selectCount" class="selectCount">
+  </section>
+
+  <section class="selected" id="selected">
+    <h2>Jouw selectie</h2>
+    <section id="selectedCollection" class="selectedCollection"></section>
+  </section>
+
+
+  <% include ../partials/footer %>
+</body>
+
+</html>
