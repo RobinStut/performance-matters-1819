@@ -14,7 +14,7 @@ app.use(express.static("static"));
 app.set("view engine", "ejs");
 
 function datafetch(search) {
-  console.log("17 " + search);
+  // console.log("17 " + search);
   return fetch(
     "https://raw.githubusercontent.com/sterrevangeest/performance-matters-1819/master/static/resultsshort.json"
   )
@@ -34,12 +34,35 @@ app.get("/", (req, res) =>
 );
 app.post("/", function(req, res) {
   var search = req.body.search;
-  datafetch(search).then(res => console.log("RES", res));
-  //console.log("36 " + data);
-  // console.log(search);
-  // res.send(search);
-  // app.get("/", datafetch);
+  // console.log("Search value ", search);
+  var dataGet = datafetch(search);
+  dataGet.then(function(res) {
+    // console.log("res" + res);
+    var data = res.data;
+
+    var datamap = data.map(function(item) {
+      var titleSplit = item.title.split(" ");
+      // console.log(titleSplit);
+      titleSplit.includes(search);
+      if (titleSplit.includes(search) === true) {
+        // console.log(item);
+        return item;
+      } else {
+        return;
+      }
+    });
+    console.log(datamap.filter(valueCheck));
+
+    function valueCheck(value) {
+      return value !== undefined;
+    }
+  });
 });
+
+// console.log(search);
+// res.send(search);
+// app.get("/", datafetch);
+// });
 
 app.get("/login", (req, res) => res.render("pages/login"));
 app.get("/patientOverview", (req, res) => res.render("pages/patientOverview"));
