@@ -20,7 +20,22 @@
     <h2>Resultaten</h2>
     <section id="loader" class="loader"></section>
     <section id="wrapper">
-<% if (data !== 'data.data'){ %>
+<% if (data !== null){ %>
+<% data.forEach(function(item){%>
+      <article>
+      <div>
+      <img src="<%=item.cover_image%>" alt="<%=item.title%>">
+      <button class="addButton" id="<%=item.isbn%>">+</button>
+      </div>
+      <div>
+      <span><%=item.title%></span>
+      <span><%=item.author%></span>
+      <p class="bio"><%=item.description%></p>
+      </div>
+      </article>
+<%}); %>
+<% } %>
+<% if (data !== null){ %>
 <% data.forEach(function(item){%>
       <article>
       <div>

@@ -29,34 +29,41 @@ function datafetch(search) {
 // app.get("/", datafetch);
 app.get("/", (req, res) =>
   res.render("pages/lijstSamenstellen", {
-    data: "data.data"
+    data: null
   })
 );
+
 app.post("/", function(req, res) {
   var search = req.body.search;
   // console.log("Search value ", search);
   var dataGet = datafetch(search);
-  dataGet.then(function(res) {
-    // console.log("res" + res);
-    var data = res.data;
+  dataGet
+    .then(function(res2) {
+      // console.log("res" + res);
+      var data = res2.data;
 
-    var datamap = data.map(function(item) {
-      var titleSplit = item.title.split(" ");
-      // console.log(titleSplit);
-      titleSplit.includes(search);
-      if (titleSplit.includes(search) === true) {
-        // console.log(item);
-        return item;
-      } else {
-        return;
+      return data
+        .map(function(item) {
+          var titleSplit = item.title.split(" ");
+          // console.log(titleSplit);
+          titleSplit.includes(search);
+          if (titleSplit.includes(search) === true) {
+            // console.log(item);
+            return item;
+          }
+        })
+        .filter(valueCheck);
+
+      function valueCheck(value) {
+        return value !== undefined;
       }
+    })
+    .then(transformedRes => {
+      console.log("62 " + transformedRes);
+      res.render("pages/lijstSamenstellen", {
+        data: transformedRes
+      });
     });
-    console.log(datamap.filter(valueCheck));
-
-    function valueCheck(value) {
-      return value !== undefined;
-    }
-  });
 });
 
 // console.log(search);
