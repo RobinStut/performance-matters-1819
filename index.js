@@ -2,13 +2,18 @@ const express = require("express");
 const fetch = require("node-fetch");
 const bodyParser = require("body-parser");
 const EventEmitter = require("events");
+const compression = require("compression");
+const findCacheDir = require("find-cache-dir");
 const app = express();
 const port = 3000;
+
+findCacheDir({ name: "oba" });
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 // express.use
 app.use(express.static("static"));
+app.use(compression());
 
 //express.set(view engine = ejs)
 app.set("view engine", "ejs");

@@ -1,8 +1,46 @@
 # Performance Matters @cmda-minor-web · 2018-2019
 
+## How to install
+
+```
+git clone https://github.com/RobinStut/performance-matters-1819
+
+cd performance-matters-1819
+
+nodemon index.js localhost 3000
+
+```
+
+---
+
+## Performance vergelijking met Audits
+
+client-side performance check
+![auditClient](auditClient.png)
+
+server-side performance check
+![auditServer](auditServer.png)
+
+## Performance vergelijking van network
+
+client-side performance check
+![networkClient](networkClient.png)
+
+server-side performance check
+![networkServer](networkServer.png)
+
+## WebPageTest check op de client
+
+![webpagetest](webpagetest.png)
+
+Ik zou graag nog een check uitvoeren op de server side versie, zodra deze online te vinden is.
+
+# Over Performance Matters @cmda-minor-web · 2018-2019
+
 In dit vak gaan we de eerder bij de OBA gemaakte client side web applicatie ombouwen naar een server side gerenderde applicatie. Verder gaan we een reeks van optimalisaties doorvoeren om de performance van de applicatie te verbeteren. Uiteindelijk zorgen we ervoor dat de applicatie offline beschikbaar.
 
 ## Leerdoelen
+
 - _Je weet het verschil tussen client side en server side rendering en kan server side rendering toepassen_
 - _Je begrijpt hoe de critical render path werkt, en hoe je deze kan optimaliseren voor een betere runtime en/of perceived performance._
 - _Je begrijpt hoe een Service Worker werkt en kan deze in jou applicatie implementeren._
@@ -19,21 +57,20 @@ Doel: Webpagina's server side renderen
 
 [Slides](...)
 
-### Week 2 - Critical Rendering Path  
+### Week 2 - Critical Rendering Path
 
 Doel: Critical Rendering path optimaliseren
 [Opdrachten](https://github.com/cmda-minor-web/performance-matters-1819/blob/master/week-2.md)
 
 [Slides](...)
 
-### Week 3 - Going Offline 
+### Week 3 - Going Offline
 
 Doel: Webpagina's offline beschikbaar stellen
 
 [Opdrachten](https://github.com/cmda-minor-web/performance-matters-1819/blob/master/week-3.md)
 
 [Slides](...)
-
 
 <!-- Add a link to your live demo in Github Pages 🌐-->
 
