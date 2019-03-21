@@ -1,13 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
 
+    <style>
+      .fixed-ratio {
+        display: block;
+        position: relative;
+        height: 0;
+        overflow: hidden;
+      }
 
-</body>
+      .fixed-ratio-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        max-width: inherit;
+      }
+
+      .fixed-ratio-16by9 {
+        /* ratio: 100% / (16 / 9) = */
+        padding-bottom: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <p>tekst boven afbeelding</p>
+    <picture class="fixed-ratio fixed-ratio-16by9">
+      <!-- multiple <source>s here -->
+
+      <img
+        alt="Visits spike at 4K around lunch time."
+        src="https://www.w3schools.com/w3css/img_lights.jpg"
+        class="fixed-ratio-content"
+      />
+    </picture>
+    <p>tekst onder afbeelding</p>
+  </body>
 </html>
