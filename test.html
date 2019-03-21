@@ -7,6 +7,15 @@
     <title>Document</title>
 
     <style>
+      img {
+        background: #f1f1fa;
+        width: 400px;
+        height: 300px;
+        display: block;
+        margin: 10px auto;
+        border: 0;
+      }
+
       .fixed-ratio {
         display: block;
         position: relative;
@@ -32,8 +41,6 @@
   <body>
     <p>tekst boven afbeelding</p>
     <picture class="fixed-ratio fixed-ratio-16by9">
-      <!-- multiple <source>s here -->
-
       <img
         alt="Visits spike at 4K around lunch time."
         src="https://www.w3schools.com/w3css/img_lights.jpg"
@@ -41,5 +48,92 @@
       />
     </picture>
     <p>tekst onder afbeelding</p>
+    <p>tekst boven afbeelding</p>
+    <picture class="fixed-ratio fixed-ratio-16by9">
+      <img
+        alt="Visits spike at 4K around lunch time."
+        src="https://helpx.adobe.com/in/stock/how-to/visual-reverse-image-search/_jcr_content/main-pars/image.img.jpg/visual-reverse-image-search-v2_1000x560.jpg"
+        class="fixed-ratio-content"
+      />
+    </picture>
+    <p>tekst onder afbeelding</p>
+
+    <picture class="fixed-ratio fixed-ratio-16by9">
+      <img
+        alt="Visits spike at 4K around lunch time."
+        data-src="https://www.elastic.co/assets/bltada7771f270d08f6/enhanced-buzz-1492-1379411828-15.jpg"
+        class="fixed-ratio-content lazy"
+      />
+    </picture>
+    <picture class="fixed-ratio fixed-ratio-16by9">
+      <img
+        alt="Visits spike at 4K around lunch time."
+        data-src="http://www.movingimage.us/images/homepage/features/jhe_jim_kermit.jpg"
+        class="fixed-ratio-content lazy"
+      />
+    </picture>
+    <picture class="fixed-ratio fixed-ratio-16by9">
+      <img
+        alt="Visits spike at 4K around lunch time."
+        data-src="http://webresizer.com/images2/bird1_after.jpg"
+        class="fixed-ratio-content lazy"
+      />
+    </picture>
+
+    <!--
+      <picture class="fixed-ratio fixed-ratio-16by9">
+        <img
+          alt="Visits spike at 4K around lunch time."
+          data-src="https://www.elastic.co/assets/bltada7771f270d08f6/enhanced-buzz-1492-1379411828-15.jpg"
+          class="fixed-ratio-content lazy"
+        />
+      </picture>
+      <picture class="fixed-ratio fixed-ratio-16by9">
+        <img
+          alt="Visits spike at 4K around lunch time."
+          data-src="http://www.movingimage.us/images/homepage/features/jhe_jim_kermit.jpg"
+          class="fixed-ratio-content lazy"
+        />
+      </picture>
+      <picture class="fixed-ratio fixed-ratio-16by9">
+        <img
+          alt="Visits spike at 4K around lunch time."
+          data-src="http://webresizer.com/images2/bird1_after.jpg"
+          class="fixed-ratio-content lazy"
+        />
+      </picture>
+    -->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        var lazyloadImages = document.querySelectorAll("img.lazy");
+        var lazyloadThrottleTimeout;
+
+        function lazyload() {
+          if (lazyloadThrottleTimeout) {
+            clearTimeout(lazyloadThrottleTimeout);
+          }
+
+          lazyloadThrottleTimeout = setTimeout(function() {
+            var scrollTop = window.pageYOffset;
+            lazyloadImages.forEach(function(img) {
+              if (img.offsetTop < window.innerHeight + scrollTop) {
+                img.src = img.dataset.src;
+                img.classList.remove("lazy");
+              }
+            });
+            if (lazyloadImages.length == 0) {
+              document.removeEventListener("scroll", lazyload);
+              window.removeEventListener("resize", lazyload);
+              window.removeEventListener("orientationChange", lazyload);
+            }
+          }, 20);
+        }
+
+        document.addEventListener("scroll", lazyload);
+        window.addEventListener("resize", lazyload);
+        window.addEventListener("orientationChange", lazyload);
+      });
+    </script>
   </body>
 </html>
