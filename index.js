@@ -24,6 +24,7 @@ app.use((req, res, next) => {
 
 //express.set(view engine = ejs)
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 
 function datafetch(search) {
   // console.log("17 " + search);
