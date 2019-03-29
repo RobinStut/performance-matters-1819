@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const EventEmitter = require("events");
 const compression = require("compression");
 const findCacheDir = require("find-cache-dir");
+const api = require("oba-wrapper/node");
 const app = express();
 const port = 3000;
 
@@ -80,7 +81,7 @@ app.post("/", function(req, res) {
 // res.send(search);
 // app.get("/", datafetch);
 // });
-
+app.get("/algemeen", (req, res) => res.render("pages/algemeen"));
 app.get("/login", (req, res) => res.render("pages/login"));
 app.get("/patientOverview", (req, res) => res.render("pages/patientOverview"));
 app.get("/patientVanMaatje", (req, res) =>
