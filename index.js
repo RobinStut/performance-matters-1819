@@ -7,13 +7,14 @@ const findCacheDir = require("find-cache-dir");
 const api = require("oba-wrapper/node");
 const app = express();
 const port = 3000;
+const path = require("path");
 
 findCacheDir({ name: "oba" });
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 // express.use
-app.use(express.static("static"));
+app.use(express.static(path.join(__dirname, "./static")));
 app.use(compression());
 app.use((req, res, next) => {
   // todo: set cache header to 1 year

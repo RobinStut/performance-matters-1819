@@ -27,6 +27,7 @@
     "node-fetch": "^2.3.0",
     "nodemon": "^1.18.10",
     "oba-wrapper": "github:maanlamp/oba-wrapper",
+    "path": "^0.12.7",
     "uglify-js": "^3.4.10"
   }
 }
