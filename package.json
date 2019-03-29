@@ -26,6 +26,7 @@
     "find-cache-dir": "^2.1.0",
     "node-fetch": "^2.3.0",
     "nodemon": "^1.18.10",
+    "oba-wrapper": "github:maanlamp/oba-wrapper",
     "uglify-js": "^3.4.10"
   }
 }
