@@ -94,3 +94,94 @@ De afbeelding heeft een background als opvulling
 
 ![reflow](reflow5.png)
 De afbeelding is ingeladen en de achtergrond is overschreven
+
+## Service worker
+
+Een service worker kan worden ingezet met behulp van een script via de client. De service worker gaat tussen het verkeer van de client en de server zitten. De gegevens die opgehaald worden vanaf de server, komen eerst langs de Service worker. De service worker maakt het mogelijk om content terug te kunnen geven zodra de internetverbinding weg valt, als deze wel geocached waren in de service worker.
+
+### Het installeren van een service worker
+
+#### Register
+
+Eerst moet de service worker geregistreerd worden zodat deze geïnstalleerd kan worden.
+We geven aan dat er naar het bestand _serviceworker.js_ gekeken moet worden. Ook wordt er gekeken naar eventuele updates, die worden doorgevoerd op een refresh .
+
+```js
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function() {
+    navigator.serviceWorker.register("/serviceworker.js").then(
+      function(registration) {
+        console.log(
+          "ServiceWorker registration successful with scope: ",
+          registration.scope
+        );
+
+        return registration.update();
+      },
+      function(err) {
+        console.log("ServiceWorker registration failed: ", err);
+      }
+    );
+  });
+}
+```
+
+#### Update
+
+Zodra alles geregistreerd is, geven we aan welke bestanden we graag gecached willen hebben.
+
+```js
+const cacheName = 'my-site-cache-v1',
+urlsToCache = ['styles.css', ‘index.js’, ‘/’]
+
+self.addEventListener('install', function(event) {
+event.waitUntil(
+caches.open(cacheName)
+.then(function(cache) {
+console.log('Opened cache')
+return cache.addAll(urlsToCache)
+})
+.catch(err => console.error(err))
+)
+event.waitUntil(self.skipWaiting())
+})
+```
+
+#### Fetch
+
+Als laatste geven we aan wat er moet gebeuren in de fetch.
+
+```js
+self.addEventListener("fetch", function(event) {
+  event.respondWith(
+    caches
+      .match(event.request)
+      .then(function(response) {
+        if (response) {
+          return response;
+        }
+
+        return fetch(event.request).then(function(response) {
+          if (
+            !response ||
+            response.status !== 200 ||
+            response.type !== "basic"
+          ) {
+            return response;
+          }
+
+          var responseToCache = response.clone();
+
+          caches.open(cacheName).then(function(cache) {
+            cache.put(event.request, responseToCache);
+          });
+
+          return response;
+        });
+      })
+      .catch(err => console.error(err))
+  );
+});
+```
+
+Bron: https://developers.google.com/web/fundamentals/primers/service-workers/
